@@ -1,11 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3fmsxp31ebva"]
+[gd_scene load_steps=3 format=3 uid="uid://c3fmsxp31ebva"]
 
-[ext_resource type="Script" path="res://Scripts/Character.gd" id="1_a0bdv"]
-[ext_resource type="Texture2D" uid="uid://ci8cqs2xv5ann" path="res://icon.svg" id="2_gbs7t"]
+[ext_resource type="PackedScene" uid="uid://c8wlcp6pxucsw" path="res://objects/character.tscn" id="2_n7wxx"]
 [ext_resource type="Script" path="res://Scripts/Economy.gd" id="3_wubvh"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gg314"]
-size = Vector2(128, 128)
 
 [node name="Main" type="Node2D"]
 
@@ -16,12 +12,4 @@ script = ExtResource("3_wubvh")
 
 [node name="Characters" type="Node" parent="."]
 
-[node name="Character" type="CharacterBody2D" parent="Characters"]
-script = ExtResource("1_a0bdv")
-
-[node name="Sprite2D" type="Sprite2D" parent="Characters/Character"]
-texture = ExtResource("2_gbs7t")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Character"]
-position = Vector2(-1, 0)
-shape = SubResource("RectangleShape2D_gg314")
+[node name="Character" parent="Characters" instance=ExtResource("2_n7wxx")]
